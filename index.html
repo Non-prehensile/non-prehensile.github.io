@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Project website for belief-aware legged non-prehensile manipulation of large objects.">
+  <meta name="keywords" content="non-prehensile manipulation, legged robots, belief states, reinforcement learning, loco-manipulation, pushing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Belief-Aware Legged Non-Prehensile Manipulation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/proposal.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+<nav class="navbar proposal-navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item has-text-weight-semibold" href="#">Belief-Aware Pushing</a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="project-nav">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="project-nav" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#overview">Overview</a>
+      <a class="navbar-item" href="#projects">Project Pages</a>
+      <a class="navbar-item" href="#system">System</a>
+      <a class="navbar-item" href="#heatmap">Heatmap</a>
+      <a class="navbar-item" href="#videos">Videos</a>
+      <a class="navbar-item" href="#real-world">Real-World</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero proposal-hero" id="overview">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <p class="proposal-kicker">Project Overview</p>
+          <h1 class="title is-1 publication-title">Belief-Aware Legged Non-Prehensile Manipulation of Large Objects</h1>
+          <p class="hero-subtitle">
+            A legged robot pushes large, unfamiliar objects by using interaction history to reason about hidden contact and object properties.
+          </p>
+          <div class="proposal-tags">
+            <span>Legged loco-manipulation</span>
+            <span>Non-prehensile pushing</span>
+            <span>Belief-state estimation</span>
+            <span>Contact-rich RL</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-frame">
+        <img src="./static/media/images/belief-pushing-header.png" alt="Teaser diagram for legged non-prehensile manipulation and belief-aware pushing.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Project Idea</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robots often need to move furniture, carts, boxes, and other large objects that are difficult to grasp. This project focuses on non-prehensile manipulation: using controlled contact from a legged robot's body and arm to push objects toward a goal.
+          </p>
+          <p>
+            The core research direction is to move from policies that rely on privileged simulator state to policies that infer a useful belief from deployable signals such as vision, proprioception, action history, and contact cues.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="projects">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Related Project Pages</h2>
+    <div class="project-link-grid text-only">
+      <a class="project-link-card" href="../quadrupedpushing-cr2.github.io/index.html">
+        <div class="research-card-body">
+          <p class="summary-label">Project 1</p>
+          <h3 class="title is-5">Whole-Body Quadrupedal Pushing</h3>
+          <p>Learning base-driven pushing across object geometry and physics variation.</p>
+        </div>
+      </a>
+      <a class="project-link-card" href="../anonymous-loco-manipulation.github.io/index.html">
+        <div class="research-card-body">
+          <p class="summary-label">Project 2</p>
+          <h3 class="title is-5">Arm-Mediated Loco-Manipulation</h3>
+          <p>Using base and arm contacts to push unfamiliar objects across object families.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="system">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">System</h2>
+        <div class="figure-frame">
+          <img src="./static/images/systemdiagram-Page-4.drawio.png" alt="Hierarchical loco-manipulation system diagram with privileged and history encoders.">
+        </div>
+        <div class="content has-text-justified figure-caption">
+          <p>
+            The high-level policy selects base and arm commands for pushing. A locomotion controller handles stable base motion. The belief module summarizes recent interaction so the policy can respond to object motion, contact quality, friction, mass, and slip.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light" id="heatmap">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Touch Heatmap Visualization</h2>
+    <p class="section-intro has-text-centered">
+      The heatmap is generated from contact between the robot and the object.
+    </p>
+    <div class="heatmap-grid">
+      <article>
+        <h3 class="title is-5">Robot-Object Interaction</h3>
+        <video controls muted playsinline preload="metadata">
+          <source src="./static/media/Heatmap_viz/touch_heatmap_rollout_9s.mp4" type="video/mp4">
+        </video>
+      </article>
+      <article>
+        <h3 class="title is-5">Touch Heatmap Progress</h3>
+        <img src="./static/media/Heatmap_viz/touch_heatmap_progress.gif" alt="Animated touch heatmap showing contact progress between the robot and object.">
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="videos">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Overview Video</h2>
+    <div class="video-grid one-up">
+      <article>
+        <video controls playsinline preload="metadata">
+          <source src="./static/media/videos/Final%20final%20final.mp4" type="video/mp4">
+        </video>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Pushing Rollouts</h2>
+    <p class="section-intro has-text-centered">
+      Whole-body pushing rollouts from the quadruped pushing project.
+    </p>
+    <div class="video-grid two-up">
+      <article>
+        <h4>Whole-Body Rollout with Plot</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/robot_rollout_with_plot.mp4" type="video/mp4"></video>
+      </article>
+      <article>
+        <h4>Whole-Body Tracking View</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/rollout_with_plot-ezgif.com-crop-video.mp4" type="video/mp4"></video>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Video Results: Single-Object Comparison</h2>
+    <div class="video-grid two-up">
+      <article>
+        <h4>Box - Single Object - AM</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/modality/box_single_am.mp4" type="video/mp4"></video>
+      </article>
+      <article>
+        <h4>Box - Single Object - WB</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/modality/box_single_wb.mp4" type="video/mp4"></video>
+      </article>
+      <article>
+        <h4>Cylinder - Single Object - AM</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/modality/cylinder_single_am.mp4" type="video/mp4"></video>
+      </article>
+      <article>
+        <h4>Cylinder - Single Object - WB</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/modality/cylinder_single_wb.mp4" type="video/mp4"></video>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Video Results: Grouped Box/Cylinder Tasks</h2>
+    <div class="video-grid two-up">
+      <article>
+        <h4>Mixed Box/Cylinder - Group - AM</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/modality/box_cylinder_group_am.mp4" type="video/mp4"></video>
+      </article>
+      <article>
+        <h4>Cylinder - Group - WB</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/modality/cylinder_group_wb.mp4" type="video/mp4"></video>
+      </article>
+      <article>
+        <h4>Box/Cylinder - Group - WB</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/modality/box_cylider-wb.mp4" type="video/mp4"></video>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Video Results: Unseen Objects</h2>
+    <div class="video-grid">
+      <article><h4>Armchair</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/armchair.mp4" type="video/mp4"></video></article>
+      <article><h4>Chair + Desk</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/chair_desk.mp4" type="video/mp4"></video></article>
+      <article><h4>Chair Array</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/chair_array.mp4" type="video/mp4"></video></article>
+      <article><h4>Wire Computer Cart</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/chair_wire_cart.mp4" type="video/mp4"></video></article>
+      <article><h4>Ottoman</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/ottoman.mp4" type="video/mp4"></video></article>
+      <article><h4>Anza Large</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/anza_large_rl_video-step-0.mp4" type="video/mp4"></video></article>
+      <article><h4>Round Coffee Table</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/roxana_round_coffee_table_rl_video-step-0.mp4" type="video/mp4"></video></article>
+      <article><h4>Steel Box Truck</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/steel_box_truck_a01_01_rl_video-step-0.mp4" type="video/mp4"></video></article>
+      <article><h4>Table Trolley</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/table_trolley_b01_01_rl_video-step-0.mp4" type="video/mp4"></video></article>
+      <article><h4>Wire Cart Alternate</h4><video controls playsinline preload="metadata"><source src="./static/media/videos/generalization/wire_computer_cart_a01_01_rl_video-step-0.mp4" type="video/mp4"></video></article>
+    </div>
+  </div>
+</section>
+
+<section class="section is-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Checkpoint Progression</h2>
+    <p class="section-intro has-text-centered">
+      Behavior changes as training checkpoints improve the learned pushing policy.
+    </p>
+    <div class="checkpoint-figure">
+      <img src="./static/media/images/side_by_side_checkpoints_colored_labels.png" alt="Side-by-side checkpoint progression for the learned pushing policy.">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="real-world">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Real-World Deployment</h2>
+    <p class="section-intro has-text-centered">
+      Initial real-world trials show Spot pushing a chair toward the goal pose.
+    </p>
+    <div class="video-grid two-up">
+      <article>
+        <h4>Spot Deployment - Trial 1</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/real-world-test/IMG_8496.mp4" type="video/mp4"></video>
+      </article>
+      <article>
+        <h4>Spot Deployment - Trial 2</h4>
+        <video controls playsinline preload="metadata"><source src="./static/media/videos/real-world-test/IMG_8503.mp4" type="video/mp4"></video>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer proposal-footer">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <p>Belief-aware legged non-prehensile manipulation of large objects.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var burgers = Array.prototype.slice.call(document.querySelectorAll(".navbar-burger"), 0);
+    burgers.forEach(function (burger) {
+      burger.addEventListener("click", function () {
+        var target = document.getElementById(burger.dataset.target);
+        burger.classList.toggle("is-active");
+        target.classList.toggle("is-active");
+      });
+    });
+  });
+</script>
+</body>
+</html>
